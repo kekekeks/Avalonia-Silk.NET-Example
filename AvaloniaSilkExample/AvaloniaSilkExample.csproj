@@ -9,10 +9,11 @@
         <None Remove=".gitignore" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.17" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.17" />
+        <PackageReference Include="Avalonia" Version="11.0.999-cibuild0027451-beta" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.999-cibuild0027451-beta" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.999-cibuild0027451-beta" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.17" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.999-cibuild0027451-beta" />
         <PackageReference Include="Silk.NET.OpenGL" Version="2.16.0" />
         <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
     </ItemGroup>
