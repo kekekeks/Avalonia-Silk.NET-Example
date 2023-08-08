@@ -15,6 +15,8 @@ namespace Tutorial
         private VertexArrayObject<float, uint> Vao;
         private Shader Shader;
 
+		int fb;
+
         private static readonly float[] Vertices =
         {
             //X    Y      Z     R  G  B  A
@@ -32,9 +34,9 @@ namespace Tutorial
 
 
 
-        protected override void OnOpenGlInit(GlInterface gl, int fb)
+        protected override void OnOpenGlInit(GlInterface gl)
         {
-            base.OnOpenGlInit(gl, fb);
+            base.OnOpenGlInit(gl);
             
             Gl = GL.GetApi(gl.GetProcAddress);
             
@@ -53,13 +55,13 @@ namespace Tutorial
         }
        
 
-        protected override void OnOpenGlDeinit(GlInterface gl, int fb)
+        protected override void OnOpenGlDeinit(GlInterface gl)
         {
             Vbo.Dispose();
             Ebo.Dispose();
             Vao.Dispose();
             Shader.Dispose();
-            base.OnOpenGlDeinit(gl, fb);
+            base.OnOpenGlDeinit(gl);
         }
 
         protected override unsafe void OnOpenGlRender(GlInterface gl, int fb)

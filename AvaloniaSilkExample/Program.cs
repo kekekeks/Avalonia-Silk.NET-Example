@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -20,7 +20,7 @@ namespace AvaloniaSilkExample
                 .UsePlatformDetect()
 		.With(new Win32PlatformOptions()
                 {
-                    UseWgl = true,
+                    RenderingMode = new[]{Win32RenderingMode.Wgl},
                 })
                 .LogToTrace();
     }
