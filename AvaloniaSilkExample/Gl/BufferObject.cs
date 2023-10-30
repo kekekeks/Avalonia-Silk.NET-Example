@@ -15,7 +15,10 @@ namespace Tutorial
         {
             _gl = gl;
             _bufferType = bufferType;
-            _gl.GetError();//Clear existing error code.
+            //Clear existing error code.
+            GLEnum error;
+            do error = _gl.GetError();
+            while (error != GLEnum.NoError);
             _handle = _gl.GenBuffer();
             Bind();
             GlErrorException.ThrowIfError(gl);
