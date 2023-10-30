@@ -1,3 +1,4 @@
+using AvaloniaSilkExample.Gl;
 using Silk.NET.OpenGL;
 using System;
 
@@ -14,13 +15,18 @@ namespace Tutorial
         {
             _gl = gl;
             _bufferType = bufferType;
-
+            //Clear existing error code.
+            GLEnum error;
+            do error = _gl.GetError();
+            while (error != GLEnum.NoError);
             _handle = _gl.GenBuffer();
             Bind();
+            GlErrorException.ThrowIfError(gl);
             fixed (void* d = data)
             {
                 _gl.BufferData(bufferType, (nuint) (data.Length * sizeof(TDataType)), d, BufferUsageARB.StaticDraw);
             }
+            GlErrorException.ThrowIfError(gl);
         }
 
         public void Bind()
