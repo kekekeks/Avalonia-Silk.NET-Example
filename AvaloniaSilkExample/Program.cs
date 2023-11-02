@@ -18,10 +18,8 @@ namespace AvaloniaSilkExample
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-		.With(new Win32PlatformOptions()
-                {
-                    UseWgl = true,
-                })
+                // setting moved to https://github.com/AvaloniaUI/Avalonia/commit/29d3c7670be216f704f001ee6e28efc0adbe2e83#diff-2b27b9ef6c0ae41c77f35ca59abc2d20472b00e6528e5c3cd2c8f0ba57f383e7R22
+		        .With(new Win32PlatformOptions { RenderingMode = new [] { Win32RenderingMode.Wgl }})
                 .LogToTrace();
     }
 }

@@ -32,9 +32,9 @@ namespace Tutorial
 
 
 
-        protected override void OnOpenGlInit(GlInterface gl, int fb)
+        protected override void OnOpenGlInit(GlInterface gl)
         {
-            base.OnOpenGlInit(gl, fb);
+            base.OnOpenGlInit(gl);
             
             Gl = GL.GetApi(gl.GetProcAddress);
             
@@ -53,18 +53,18 @@ namespace Tutorial
         }
        
 
-        protected override void OnOpenGlDeinit(GlInterface gl, int fb)
+        protected override void OnOpenGlDeinit(GlInterface gl)
         {
             Vbo.Dispose();
             Ebo.Dispose();
             Vao.Dispose();
             Shader.Dispose();
-            base.OnOpenGlDeinit(gl, fb);
+            base.OnOpenGlDeinit(gl);
         }
 
         protected override unsafe void OnOpenGlRender(GlInterface gl, int fb)
         {
-            Gl.ClearColor(Color.Firebrick);
+            Gl.ClearColor(Color.DarkGray);
             Gl.Clear((uint)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
             Gl.Enable(EnableCap.DepthTest);
             Gl.Viewport(0,0, (uint)Bounds.Width, (uint)Bounds.Height);
