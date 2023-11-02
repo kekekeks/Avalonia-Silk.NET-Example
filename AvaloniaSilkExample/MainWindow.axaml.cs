@@ -1,6 +1,7 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using Avalonia.Interactivity;
 
 namespace AvaloniaSilkExample
 {
@@ -13,10 +14,10 @@ namespace AvaloniaSilkExample
             this.AttachDevTools();
 #endif
         }
-
-        private void InitializeComponent()
+        
+        public void OnButtonClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            AvaloniaXamlLoader.Load(this);
+            Console.WriteLine("Click");
         }
     }
 }
