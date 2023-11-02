@@ -6,5 +6,10 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaSilkExample.MainWindow"
         Title="AvaloniaSilkExample">
-    <tutorial:SilkNetExample/>
+    <DockPanel>
+        <DockPanel Height="100" DockPanel.Dock="Top">
+            <Button Click="OnButtonClick">Test</Button>
+        </DockPanel>
+        <tutorial:SilkNetExample/>
+    </DockPanel>
 </Window>
