@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using Avalonia;
 using Avalonia.OpenGL;
 using Avalonia.OpenGL.Controls;
 using Avalonia.Threading;
@@ -67,8 +68,11 @@ namespace Tutorial
             Gl.ClearColor(Color.Firebrick);
             Gl.Clear((uint)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
             Gl.Enable(EnableCap.DepthTest);
-            Gl.Viewport(0,0, (uint)Bounds.Width, (uint)Bounds.Height);
-            
+            PixelPoint p_tl = this.PointToScreen(Bounds.TopLeft);
+            PixelPoint p_br = this.PointToScreen(Bounds.BottomRight);
+            PixelPoint p = p_br - p_tl;
+            gl.Viewport(0, 0, p.X, p.Y);
+
             Ebo.Bind();
             Vbo.Bind();
             Vao.Bind();
